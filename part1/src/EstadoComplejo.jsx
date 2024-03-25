@@ -21,12 +21,21 @@ const History = (props) => {
 
 }
 
+
+const Buttom = (props) => {
+    return (
+        <button onClick={props.handleClick}>{props.text}</button>
+    )
+}
+
+
+
 const EstadoComplejo = () => {
     
-    const [left, setLeft] = useState(0)
-    const [right, setRight] = useState(0)
-    const [allClicks, setAll] = useState([])
-    const [total, setTotal] = useState(0)
+    // const [left, setLeft] = useState(0)
+    // const [right, setRight] = useState(0)
+    // const [allClicks, setAll] = useState([])
+    // const [total, setTotal] = useState(0)
     const [value, setValue] = useState(10)
     // estado complejo
     // return (
@@ -98,11 +107,15 @@ const EstadoComplejo = () => {
         return hadler
     }
 
+    const setTovalue = (newValue) => {
+        setValue(newValue)
+    }
+
     // los hooks solo se pueden llamar desde el interior de un cuerpo de la función que define un componente de React:
 
     return (
         <div>
-            {left}
+            {/* {left}
             <Button handleClick={handleLeftClick} text={"left"}></Button>
             <Button handleClick={handleRightClick} text={"right"}></Button>
             {right}
@@ -110,7 +123,16 @@ const EstadoComplejo = () => {
             <p>total: {total}</p>
             <History allClicks={allClicks}></History>
             {value}
-            <button onClick={hello()}>hello buttom</button>
+            <button onClick={hello()}>hello buttom</button> */}
+{/* 
+            <button onClick={setTovalue(1000)}>thousand</button>
+            <button onClick={setTovalue(0)}>reset</button>
+            <button onClick={setTovalue(value + 1)}>increment</button> */}
+            {value}
+            <Buttom handleClick= {()=> setTovalue(1000)} text="thousand"></Buttom>
+            <Buttom handleClick= {()=> setTovalue(0)} text="reset"></Buttom>
+            <Buttom handleClick= {()=> setTovalue(value + 1)} text="increment"></Buttom>
+
         </div>
     )
 
